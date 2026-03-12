@@ -52,6 +52,28 @@ nav a:hover {
    color: #D34312;
 }
 
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    color: black;
+    cursor: pointer;
+}
+
+.sticky-nav {
+   position: sticky;
+   margin: 15px 0  0 15px;
+   width: 98%;
+   top: 0;
+   z-index: 10;
+   background: #ffffff;
+}
+
+.sticky-nav ul {
+   display: flex;
+   gap: 30px;
+   padding: 15px;
+}
+
 /* ==== Main Section ==== */
 .page-container {
    background: #ffffff;
@@ -74,8 +96,9 @@ nav a:hover {
    align-items: center;
    flex-direction: column;
    justify-content: center;
-   width: 100%;
-   margin: 50px auto;
+   max-width: 1130px;
+   width: 70vw;
+   margin: 40px auto;
 }
 
 img {
@@ -86,11 +109,12 @@ img {
 
 .body-text {
    text-align: center;
-   width: 60%;
-   gap: 20px;
+   width: 80%;
+   gap: 30px;
    line-height: 1.5;
    max-width: 1200px;
    margin: 0 auto;
+   padding-left: 60px;
 }
 
 .text-links {
@@ -112,13 +136,13 @@ img {
    align-items: center;
    justify-content: center;
    gap: 100px;
-   height: 60vh ;
+   height: 70vh ;
    margin: 60px auto;
 }
 
 .buttons {
-   width: 550px;
-   height: 550px;
+   width: 40vw;
+   height: 60vh;
 }
 
 .vid-media {
@@ -142,7 +166,7 @@ img {
 }
 
 .left-side {
-   width: 400px;
+   width: 400vw;
    margin: 100px auto 50px 80px;
 }
 
@@ -162,15 +186,15 @@ img {
 }
 
 .left-purple {
-   margin-top: 170px;
-   width: 450px;
-   height: 300px;
+   margin-top: 140px;
+   width: 40vw;
+   height: 40vh;
 }
 
 .right-purple {
    margin-top: 80px;
-   width: 500px;
-   height: 500px;
+   width: 50vw;
+   height: 50vh;
 }
 
 .blue-text {
@@ -191,17 +215,64 @@ img {
    margin: auto 25px;
 }
 
+.blue-img {
+   display: flex;
+   width: 100%;
+}
+
+footer {
+   margin: 90px 100px;
+   display: flex;
+   justify-content: center;
+   gap: 30px;
+   flex-wrap: wrap;
+   line-height: 1.1;
+   border-top: 2px solid #EEEEEE;
+}
+
+footer h1 {
+   width: 100%;
+   font-size: 3rem;
+   margin: 20px 25px;
+}
+
+footer a {
+   text-decoration: none;
+   color: black;
+}
+
+.footer-links,
+.email-form {
+   display: flex;
+   flex-direction: column;
+   gap: 6px;
+   width: 30%;
+}
+
+footer p {
+   line-height: 1.5;
+   gap: 30px;
+}
+
+.email {
+   background: #EEEEEE;
+   border: none;
+   padding: 5px;
+   font-size: 1.1rem;
+   
+}
+
+.sign-up-btn {
+   padding: 10px 10px;
+   border: none;
+   background: #1616CC;
+   color: #ffffff;
+   cursor: pointer;
+}
+
+
 /* ==== Responsive Design ==== */
-/* @media(max-width: 992px) {
-   .hero {
-      flex-direction: column;
-      text-align: center;
-      gap: 50px;
-      padding: 100px 20px 40px;
-   }
-}
-
-@media(max-width: 768px) {
+@media(max-width: 992px) {
    .hero {
       flex-direction: column;
       text-align: center;
@@ -209,123 +280,83 @@ img {
       padding: 100px 20px 40px;
    }
 
-}
-
-@media(max-width: 480px) {
-   .hero {
-      flex-direction: column;
-      text-align: center;
-      gap: 50px;
-      padding: 100px 20px 40px;
+   .buttons-box {
+      height: 80vh;
    }
-} */
+   
+   .buttons {
+      width: 50%;
+      height: auto;
+   }
 
-@media (max-width: 992px) {
-    /* Hero section stacks vertically */
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        gap: 50px;
-        padding: 100px 20px 40px;
-    }
+   .green-bar-img {
+      width: 100%;
+   }
 
-    /* Green and purple boxes stack images vertically */
-    .green-box,
-    .purple-box,
-    .buttons-box,
-    .blue-text {
+   .right-side {
+      width: 50%;
+   }
+
+   .purple-box {
+      width: 65%;
+   }
+
+   .blue-img {
+      width: 150%;
+   }
+
+   header {
+      margin: 0;
+      padding: 0;
+      font-size: 1rem;
+   }
+
+   .menu-toggle {
+      display: block;
+   }
+
+   .menu-toggle:hover {
+      color: #FD5948;
+      transition: color 0.3s ease;
+   }
+
+   header {
+      padding: 15px 20px;
+   }
+
+    nav ul {
+        position: fixed;
+        bottom: 100%;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: #EEEEEE;
         flex-direction: column;
         align-items: center;
-        gap: 30px;
+        justify-content: flex-start;
+        padding-top: 50px;
+        transition: 0.3s ease;
     }
 
-    /* Solo images scale down */
-    .solo-img img,
-    .left-side,
-    .right-side,
-    .left-purple,
-    .right-purple,
-    .buttons {
-        width: 80%;
-        height: auto;
-        margin-top: 0; /* reset large margins for small screens */
+    nav ul.active {
+      bottom: -50px;
     }
 
-    /* Reset margins inside green-box and purple-box */
-    .left-side,
-    .right-side,
-    .left-purple,
-    .right-purple {
-        margin-left: 0;
-    }
-
-    /* Body text width adjusts */
-    .body-text {
-        width: 90%;
-        padding-left: 0;
-        text-indent: 0;
-    }
-
-    .body-text p {
-        width: 100%;
-        padding-left: 0;
-        text-indent: 0;
-    }
-
-    /* Buttons box images scale */
-    .buttons {
-        max-width: 90%;
+    nav a {
+        font-size: 1.2rem;
+        padding: 15px 0;
     }
 }
 
-@media (max-width: 768px) {
-    /* Further scale down hero images */
-    .solo-img img,
-    .left-side,
-    .right-side,
-    .left-purple,
-    .right-purple,
-    .buttons {
-        width: 90%;
-    }
+ @media(max-width: 768px) {
+   .body-text {
+      line-height: 1;
+      margin: 0;
+      padding-left: 50px;
+      text-indent: -15px;
+   }
 
-    /* Adjust spacing between sections */
-    .hero,
-    .green-box,
-    .purple-box,
-    .buttons-box,
-    .blue-text {
-        gap: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    /* On very small screens, images fill container */
-    .solo-img img,
-    .left-side,
-    .right-side,
-    .left-purple,
-    .right-purple,
-    .buttons {
-        width: 100%;
-    }
-
-    /* Reduce padding for small screens */
-    .hero {
-        padding: 80px 10px 20px;
-        gap: 20px;
-    }
-
-    /* Body text width full */
-    .body-text {
-        width: 100%;
-    }
-
-    /* Reduce gaps in flex containers */
-    .green-box,
-    .purple-box,
-    .buttons-box,
-    .blue-text {
-        gap: 15px;
-    }
+   h1 {
+      text-align: center;
+   }
 }
